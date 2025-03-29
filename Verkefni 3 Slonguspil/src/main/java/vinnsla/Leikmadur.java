@@ -6,13 +6,13 @@ import javafx.beans.property.SimpleStringProperty;
 
 public class Leikmadur {
 
-    private final  SimpleStringProperty  leikmadur = new SimpleStringProperty();
+    private final  SimpleStringProperty nafnLeikmanns = new SimpleStringProperty();
     private final IntegerProperty reiturProperty =
             new SimpleIntegerProperty(2); // 2 til að listener taki eftir breytingu í 1
 
 
-    public Leikmadur(String leikmadur) {
-        this.leikmadur.setValue (leikmadur);
+    public Leikmadur(String nafnLeikmanns) {
+        this.nafnLeikmanns.setValue (nafnLeikmanns);
     }
 
     /**
@@ -35,7 +35,7 @@ public class Leikmadur {
     @Override
     public String toString() {
         return "Leikmadur{" +
-                "leikmadur=" + leikmadur.get() +
+                "leikmadur=" + nafnLeikmanns.get() +
                 ", reiturProperty=" + reiturProperty.get() +
                 '}';
     }
@@ -45,6 +45,6 @@ public class Leikmadur {
     }
 
     public String getNafn() {
-        return leikmadur.get();
+        return nafnLeikmanns.get();
     }
 }
