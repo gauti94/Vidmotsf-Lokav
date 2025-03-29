@@ -1,6 +1,8 @@
 package vinnsla;
 
 import javafx.beans.property.*;
+import vidmot.SnakesApplication;
+
 import java.nio.charset.StandardCharsets;
 import java.util.Scanner;
 /******************************************************************************
@@ -22,7 +24,7 @@ public class Leikur {
     // model hlutur fyrir slöngur og stiga
     private final SlongurStigar slongurStigar = new SlongurStigar();
     private final Leikmadur[] leikmenn =    // harðkóðaðir leikmenn, má lesa inn seinna
-            new Leikmadur[]{new Leikmadur("Bára"), new Leikmadur("Gísli")};
+            new Leikmadur[]{new Leikmadur(SnakesApplication.getNafnLeikmanns1()), new Leikmadur(SnakesApplication.getNafnLeikmanns2())};
 
     private final SimpleBooleanProperty leikLokid = new SimpleBooleanProperty(); // er leik lokið
 

@@ -19,12 +19,19 @@ import javafx.stage.Stage;
  *****************************************************************************/
 public class SnakesApplication extends Application {
 
-    private String nafnLeikmanns1;
-    private String nafnLeikmanns2;
+    private static String nafnLeikmanns1;
+    private static String nafnLeikmanns2;
+
+    public static String getNafnLeikmanns1() {
+        return nafnLeikmanns1;
+    }
+    public static String getNafnLeikmanns2() {
+        return nafnLeikmanns2;
+    }
 
     @Override
-    public void start(Stage stage) throws IOException {
-        TextInputDialog dialog1 = new TextInputDialog("Leikmaður 1");
+        public void start(Stage stage) throws IOException {
+            TextInputDialog dialog1 = new TextInputDialog("Leikmaður 1");
         dialog1.setTitle("Nafn fyrsta leikmanns");
         dialog1.setHeaderText("Velkominn í slönguspilið!");
         dialog1.setContentText("Sláðu inn nafn fyrir fyrsta leikmann");
