@@ -1,6 +1,7 @@
 package vinnsla;
 
 import javafx.beans.property.*;
+import javafx.scene.control.Alert;
 import vidmot.SnakesApplication;
 
 import java.nio.charset.StandardCharsets;
@@ -8,7 +9,6 @@ import java.util.Scanner;
 /******************************************************************************
  *  Nafn    : Ebba Þóra Hvannberg
  *  T-póstur: ebba@hi.is
- *
  *  Lýsing  : Model klasi fyrir leikinn. Er framhlið fyrir vinnsluna
  *
  *
@@ -48,6 +48,8 @@ public class Leikur {
     // APInn fyrir viðmótið, þ.e. aðferðir sem controllerar kalla á
     /**
      * kastar tening, færir leikmann, setur næsta leikmann
+     * Opnar alert glugga ef spilari lendir á snák eða stiga og segir
+     * hvert hann fer
      *
      * @return skilar true ef leik er lokið
      */
@@ -73,6 +75,7 @@ public class Leikur {
      */
     private boolean faeraLeikmann() {
 
+
         // færa eftir að tening hefur verið kastað.
         getLeikmadur().faera(teningur.getTala(), MAXREITUR);
 
@@ -82,8 +85,17 @@ public class Leikur {
         // færa í samræmi við stiga eða snák
         if (nyrReitur !=
                 getLeikmadur().getReitur()) {
+            int gamliReitur = getLeikmadur().getReitur();
+            int breyting = nyrReitur - gamliReitur;
+            String tegund = (breyting > 0) ? "Stigi" : "Slanga";
             System.out.println("slanga eða stigi " + nyrReitur);
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle(tegund);
+            alert.setHeaderText(tegund + "!!");
+            alert.setContentText(getLeikmadur().getNafn() + ", þú ferð frá reit " + gamliReitur + " til " + nyrReitur);
+            alert.showAndWait();
             getLeikmadur().setReitur(nyrReitur);
+
         }
 
         // er leikmaður kominn í mark
