@@ -12,19 +12,31 @@ import javafx.stage.Stage;
 /******************************************************************************
  *  Nafn    : Ebba Þóra Hvannberg
  *  T-póstur: ebba@hi.is
- *
  *  Lýsing  : Aðalklasinn fyrir Slönguspilið verkefni 3
  *
  *
  *****************************************************************************/
 public class SnakesApplication extends Application {
 
+    /**
+     * Búum til 2 breytur hérna sem taka við nafni leikmanna.
+     */
+
     private static String nafnLeikmanns1;
     private static String nafnLeikmanns2;
 
+    /**
+     * Getter fyrir nafn fyrsta leikmanns
+     * @return nafn fyrsta leikmanns
+     */
     public static String getNafnLeikmanns1() {
         return nafnLeikmanns1;
     }
+
+    /**
+     * Getter fyrir nafn seinni leikmanns
+     * @return nafn seinni leikmanns
+     */
     public static String getNafnLeikmanns2() {
         return nafnLeikmanns2;
     }
@@ -53,7 +65,7 @@ public class SnakesApplication extends Application {
     /**
      * Ræsir forritið
      *
-     * @param args
+     * @param args default args
      */
     public static void main(String[] args) {
         launch();
