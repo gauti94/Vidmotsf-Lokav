@@ -56,7 +56,7 @@ public class SnakesController {
         fxNyrLeikur.disableProperty().bind(leikur.leikLokidProperty().not());
 
         // bindur stöðuna á teningnum og nýr leikur hnappnum
-        fxTeningur.disableProperty().bind(fxNyrLeikur.disableProperty().not());
+        fxTeningur.disableProperty().bind(leikur.teningurVirkur().not());
 
 
         // bindur myndir leikmanna við reitina

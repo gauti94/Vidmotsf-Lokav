@@ -31,6 +31,7 @@ public class Leikur {
             new Leikmadur[]{new Leikmadur(SnakesApplication.getNafnLeikmanns1()), new Leikmadur(SnakesApplication.getNafnLeikmanns2())};
 
     private final SimpleBooleanProperty leikLokid = new SimpleBooleanProperty(); // er leik lokið
+    private final SimpleBooleanProperty teningurVirkur = new SimpleBooleanProperty(); // er teningur virkur
 
     // Er fundinn sigurvegari eða er leikur í gangi. Gæti verið annað en strengur
     private final SimpleStringProperty sigurvegariProperty = new SimpleStringProperty(I_GANGI);
@@ -45,6 +46,7 @@ public class Leikur {
      * @param dalkar fjöldi dálka á borði
      */
     public Leikur(int radir, int dalkar) {
+        teningurVirkur.setValue(true);
         MAXREITUR = radir * dalkar;
     }
 
@@ -54,10 +56,9 @@ public class Leikur {
      * kastar tening, færir leikmann, setur næsta leikmann
      * Opnar alert glugga ef spilari lendir á snák eða stiga og segir
      * hvert hann fer
-     *
-     * @return skilar true ef leik er lokið
      */
-    public boolean leikaLeik() {
+    public void leikaLeik() {
+        teningurVirkur.setValue(false);
         // kasta
         teningur.kasta();
 
@@ -91,14 +92,13 @@ public class Leikur {
                     leikLokid.setValue(true);
                     sigurvegariProperty.set(getLeikmadur().getNafn());
                 } else {
+                    teningurVirkur.set(true);
                     setNaesti();
                 }
             });
         });
 
         timalina.play();
-
-        return false;
     }
 
     /**
@@ -106,6 +106,7 @@ public class Leikur {
      */
     public void nyrLeikur() {
         leikLokid.setValue(false);
+        teningurVirkur.setValue(true);
         leikmenn[0].setReitur(1);
         leikmenn[1].setReitur(1);
     }
@@ -151,6 +152,14 @@ public class Leikur {
      */
     public BooleanProperty leikLokidProperty() {
         return leikLokid;
+    }
+
+    /**
+     * Skilar true ef teningurinn er virkur
+     * @return teningurVirkur
+     */
+    public BooleanProperty teningurVirkur() {
+        return teningurVirkur;
     }
 
     /**
@@ -202,10 +211,7 @@ public class Leikur {
         while ("j".equalsIgnoreCase(svar)) {
             System.out.println();
             System.out.println("leikmaður á að gera " + leikur.getLeikmadur());
-            if (leikur.leikaLeik()) {
-                System.out.println(leikur.getLeikmadur() + "kominn í mark");
-                return;
-            }
+            leikur.leikaLeik();
 
             System.out.println(leikur.getTeningur());
             System.out.println(leikur.getLeikmadur(0));
