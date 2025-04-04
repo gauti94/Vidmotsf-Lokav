@@ -1,7 +1,11 @@
 package vinnsla;
 
+import javafx.animation.KeyFrame;
+import javafx.animation.Timeline;
+import javafx.application.Platform;
 import javafx.beans.property.*;
 import javafx.scene.control.Alert;
+import javafx.util.Duration;
 import vidmot.SnakesApplication;
 
 import java.nio.charset.StandardCharsets;
@@ -58,48 +62,43 @@ public class Leikur {
         teningur.kasta();
 
         // færir leikmanninn samkvæmt teningi og slöngum og stigum.
-        if (faeraLeikmann()) {
-            leikLokid.setValue(true);
-            sigurvegariProperty.set(getLeikmadur().getNafn());
-            return true;
+        int fjoldiSkrefa = teningur.getTala();
+
+        Timeline timalina = new Timeline();
+        for (int i = 1; i <= fjoldiSkrefa; i++) {
+            KeyFrame skref = new KeyFrame(Duration.millis(300*i),e -> {
+                getLeikmadur().faera(1, MAXREITUR);
+            });
+            timalina.getKeyFrames().add(skref);
         }
 
-        // næsti leikmaður á að gera
-        setNaesti();
+        timalina.setOnFinished(e -> {
+            Platform.runLater(() -> {
+                int nyrReitur = slongurStigar.uppNidur(getLeikmadur().getReitur());
+                if (nyrReitur != getLeikmadur().getReitur()) {
+                    int gamliReitur = getLeikmadur().getReitur();
+                    int breyting = nyrReitur - gamliReitur;
+                    String tegund = (breyting > 0) ? "Stigi" : "Slanga";
+                    Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                    alert.setTitle(tegund);
+                    alert.setHeaderText(tegund + "!!");
+                    alert.setContentText(getLeikmadur().getNafn() + ", þú ferð frá reit " + gamliReitur + " til " + nyrReitur);
+                    alert.showAndWait();
+                    getLeikmadur().setReitur(nyrReitur);
+                }
+
+                if (erImarki()) {
+                    leikLokid.setValue(true);
+                    sigurvegariProperty.set(getLeikmadur().getNafn());
+                } else {
+                    setNaesti();
+                }
+            });
+        });
+
+        timalina.play();
+
         return false;
-    }
-
-    /**
-     * Færir leikmann á næsta reit samkvæmt teningi. Fer upp stiga eða niður snák.
-     * @return skilar true ef leikmaður komst í mark
-     */
-    private boolean faeraLeikmann() {
-
-
-        // færa eftir að tening hefur verið kastað.
-        getLeikmadur().faera(teningur.getTala(), MAXREITUR);
-
-        // er stigi eða snákur
-        int nyrReitur = slongurStigar.uppNidur(getLeikmadur().getReitur());
-
-        // færa í samræmi við stiga eða snák
-        if (nyrReitur !=
-                getLeikmadur().getReitur()) {
-            int gamliReitur = getLeikmadur().getReitur();
-            int breyting = nyrReitur - gamliReitur;
-            String tegund = (breyting > 0) ? "Stigi" : "Slanga";
-            System.out.println("slanga eða stigi " + nyrReitur);
-            Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setTitle(tegund);
-            alert.setHeaderText(tegund + "!!");
-            alert.setContentText(getLeikmadur().getNafn() + ", þú ferð frá reit " + gamliReitur + " til " + nyrReitur);
-            alert.showAndWait();
-            getLeikmadur().setReitur(nyrReitur);
-
-        }
-
-        // er leikmaður kominn í mark
-        return erImarki();
     }
 
     /**
