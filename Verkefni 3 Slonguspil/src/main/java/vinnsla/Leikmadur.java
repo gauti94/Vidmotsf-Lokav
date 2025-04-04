@@ -8,7 +8,7 @@ public class Leikmadur {
 
     private final  SimpleStringProperty nafnLeikmanns = new SimpleStringProperty();
     private final IntegerProperty reiturProperty =
-            new SimpleIntegerProperty(2); // 2 til að listener taki eftir breytingu í 1
+            new SimpleIntegerProperty(0); // 2 til að listener taki eftir breytingu í 1
 
 
     public Leikmadur(String nafnLeikmanns) {

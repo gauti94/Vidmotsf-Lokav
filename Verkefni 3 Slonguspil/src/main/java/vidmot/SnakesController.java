@@ -62,12 +62,16 @@ public class SnakesController {
         // bindur myndir leikmanna við reitina
         String[] leikmadurStill = {"leikmadur0", "leikmadur1"};
         leikur.getLeikmadur(0).getReiturProperty().addListener((obs, gamlaGildi, nyttGildi) -> {
-            reitir.get(gamlaGildi.intValue() - 1).getStyleClass().remove(leikmadurStill[0]);
+            if(gamlaGildi.intValue() - 1 >= 0) {
+                reitir.get(gamlaGildi.intValue() - 1).getStyleClass().remove(leikmadurStill[0]);
+            }
             reitir.get(nyttGildi.intValue() - 1).getStyleClass().add(leikmadurStill[0]);
         });
 
         leikur.getLeikmadur(1).getReiturProperty().addListener((obs, gamlaGildi, nyttGildi) -> {
-            reitir.get(gamlaGildi.intValue() - 1).getStyleClass().remove(leikmadurStill[1]);
+            if(gamlaGildi.intValue() - 1 >= 0) {
+                reitir.get(gamlaGildi.intValue() - 1).getStyleClass().remove(leikmadurStill[1]);
+            }
             reitir.get(nyttGildi.intValue() - 1).getStyleClass().add(leikmadurStill[1]);
         });
 
