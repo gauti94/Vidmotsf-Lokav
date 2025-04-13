@@ -28,7 +28,7 @@ public class SlongurStigar {
         slongurStigar.put(3, 6);
         slongurStigar.put(12, 5);
         slongurStigar.put(17, 20);
-        slongurStigar.put(27, 21);
+        slongurStigar.put(23, 5);
     }
 
     /**

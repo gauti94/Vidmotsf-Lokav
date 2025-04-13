@@ -6,8 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="6186e3cb-646e-4c59-b5a2-3e5d4eee6c24" name="Changes" comment="Lagaði það að leikmenn byrjuðu á reit 2">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/vinnsla/Leikur.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/vinnsla/Leikur.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/vinnsla/SpurningaReitir.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/vinnsla/SpurningaReitir.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/vidmot/SnakesController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/vidmot/SnakesController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/vinnsla/SlongurStigar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/vinnsla/SlongurStigar.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -116,7 +116,7 @@
       <workItem from="1744047095473" duration="70000" />
       <workItem from="1744556326339" duration="2023000" />
       <workItem from="1744558371875" duration="250000" />
-      <workItem from="1744558636165" duration="4148000" />
+      <workItem from="1744558636165" duration="4563000" />
     </task>
     <task id="LOCAL-00001" summary="Taka við nöfnum spilara">
       <option name="closed" value="true" />

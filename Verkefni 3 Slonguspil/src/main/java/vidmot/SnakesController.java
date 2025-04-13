@@ -151,7 +151,6 @@ public class SnakesController {
     }
     private void setjaSpurningamerki() {
         List<Node> reitir = fxBord.getChildren();
-        reitir.removeLast();
         String spurningamerkiClass = "question";
         int[] spurningareitir = {10, 14, 19};
         for (int reitur : spurningareitir) {
