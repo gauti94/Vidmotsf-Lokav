@@ -2,7 +2,7 @@
     -fx-border-color: red;
 }
 
-.one, .two, .three, .four, .five, .six, .leikmadur0, .leikmadur1, .slanga, .stigi {
+.one, .two, .three, .four, .five, .six, .leikmadur0, .leikmadur1, .slanga, .stigi, .question {
     -fx-background-size: cover;
     -fx-background-position: center;
     -fx-background-repeat: no-repeat;
@@ -69,4 +69,8 @@
 
 .yellow {
     -fx-background-color: yellow;
+}
+
+.question {
+    -fx-background-image: url("myndir/questionmark.jpeg");
 }

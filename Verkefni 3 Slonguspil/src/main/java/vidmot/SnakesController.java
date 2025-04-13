@@ -88,6 +88,9 @@ public class SnakesController {
         // setja random styleClass liti á reitina
         setjaLiti();
 
+        //setja styleClass á spurningamerkin
+        setjaSpurningamerki();
+
         // uppfæra stiga/snáka reitin með skilaboðum
         fxSlangaStigi.textProperty().bind(
                 Bindings.when(leikur.uppNidurProperty().isEqualTo(0))
@@ -144,6 +147,21 @@ public class SnakesController {
         reitir.removeLast();  // síðasti reiturinn er Group og við fjarlægjum hann
         for (Object l : reitir) {
             ((Label) l).getStyleClass().add(litir[rand.nextInt(3)]);
+        }
+    }
+    private void setjaSpurningamerki() {
+        List<Node> reitir = fxBord.getChildren();
+        reitir.removeLast();
+        String spurningamerkiClass = "question";
+        int[] spurningareitir = {10, 14, 19};
+        for (int reitur : spurningareitir) {
+            int index = reitur - 1;
+            if (index >= 0 && index < reitir.size()) {
+                Node node = reitir.get(index);
+                if (node instanceof Label label) {
+                    label.getStyleClass().add(spurningamerkiClass);
+                }
+            }
         }
     }
 }
