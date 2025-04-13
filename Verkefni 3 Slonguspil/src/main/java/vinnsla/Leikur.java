@@ -5,10 +5,12 @@ import javafx.animation.Timeline;
 import javafx.application.Platform;
 import javafx.beans.property.*;
 import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
 import javafx.util.Duration;
 import vidmot.SnakesApplication;
 
 import java.nio.charset.StandardCharsets;
+import java.util.Optional;
 import java.util.Scanner;
 /******************************************************************************
  *  Nafn    : Ebba Þóra Hvannberg
@@ -27,6 +29,7 @@ public class Leikur {
     private final Teningur teningur = new Teningur(); // Model hlutur fyrir tening
     // model hlutur fyrir slöngur og stiga
     private final SlongurStigar slongurStigar = new SlongurStigar();
+    private final SpurningaReitir spurningaReitir = new SpurningaReitir();
     private final Leikmadur[] leikmenn =    // harðkóðaðir leikmenn, má lesa inn seinna
             new Leikmadur[]{new Leikmadur(SnakesApplication.getNafnLeikmanns1()), new Leikmadur(SnakesApplication.getNafnLeikmanns2())};
 
@@ -76,7 +79,33 @@ public class Leikur {
         timalina.setOnFinished(e -> {
             Platform.runLater(() -> {
                 int nyrReitur = slongurStigar.uppNidur(getLeikmadur().getReitur());
-                if (nyrReitur != getLeikmadur().getReitur()) {
+                if (spurningaReitir.erSpurningaReitur(getLeikmadur().getReitur())) {
+                    Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+                    ButtonType kastaButton = new ButtonType("Kasta!");
+                    ButtonType faeraButton = new ButtonType("Færa andstæðing!");
+                    alert.getButtonTypes().setAll(kastaButton, faeraButton);
+
+                    alert.setTitle("Spurningareitur!");
+                    alert.setHeaderText("Þá er spurningin, hvað viltu gera?");
+                    alert.setContentText("Viltu gera aftur, eða færa andstæðing?");
+                    Optional<ButtonType> result = alert.showAndWait();
+                    if (result.get() == kastaButton) {
+                        teningur.kasta();
+                        int spurningaTala = teningur.getTala();
+                        getLeikmadur().faera(spurningaTala, MAXREITUR);
+                    }
+                    else {
+                        int currentSpilari = naesti;
+                        int naestiSpilari = (naesti + 1) % leikmenn.length;
+                        Leikmadur andstaedingur = leikmenn[naestiSpilari];
+                        teningur.kasta();
+                        int spurningaTala = teningur.getTala();
+                        andstaedingur.faera(-spurningaTala, MAXREITUR);
+                        System.out.println("Færa andstæðing");
+
+                    }
+                }
+                else if (nyrReitur != getLeikmadur().getReitur()) {
                     int gamliReitur = getLeikmadur().getReitur();
                     int breyting = nyrReitur - gamliReitur;
                     String tegund = (breyting > 0) ? "Stigi" : "Slanga";
