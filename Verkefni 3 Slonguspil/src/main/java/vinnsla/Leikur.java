@@ -59,6 +59,8 @@ public class Leikur {
      * kastar tening, færir leikmann, setur næsta leikmann
      * Opnar alert glugga ef spilari lendir á snák eða stiga og segir
      * hvert hann fer
+     * Tjékkar hvort reiturinn sé spurningareitur og bíður spilara uppá að kasta aftur,
+     * eða kasta aftur og færa andstæðing um jafn marga reiti.
      */
     public void leikaLeik() {
         teningurVirkur.setValue(false);
