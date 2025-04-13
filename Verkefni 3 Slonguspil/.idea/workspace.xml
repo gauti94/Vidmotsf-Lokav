@@ -6,8 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="6186e3cb-646e-4c59-b5a2-3e5d4eee6c24" name="Changes" comment="Lagaði það að leikmenn byrjuðu á reit 2">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/vidmot/SnakesController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/vidmot/SnakesController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/vinnsla/SlongurStigar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/vinnsla/SlongurStigar.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/vinnsla/Leikur.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/vinnsla/Leikur.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,30 +47,30 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Application.Leikur.executor&quot;: &quot;Run&quot;,
-    &quot;Application.SnakesApplication.executor&quot;: &quot;Run&quot;,
-    &quot;Maven.vidmot [org.apache.maven.plugins:maven-clean-plugin:3.2.0:clean].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.vidmot [org.apache.maven.plugins:maven-compiler-plugin:3.13.0:compile].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.vidmot [org.apache.maven.plugins:maven-deploy-plugin:3.1.2:help].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.vidmot [org.openjfx:javafx-maven-plugin:0.0.8:jlink].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.vidmot [org.openjfx:javafx-maven-plugin:0.0.8:run].executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Notandi/OneDrive/HI/Önn 2/Viðmótsforritun/Vidmotsf-Lokav/Verkefni 3 Slonguspil&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;org.jetbrains.plugins.github.ui.GithubSettingsConfigurable&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.Leikur.executor": "Run",
+    "Application.SnakesApplication.executor": "Debug",
+    "Maven.vidmot [org.apache.maven.plugins:maven-clean-plugin:3.2.0:clean].executor": "Run",
+    "Maven.vidmot [org.apache.maven.plugins:maven-compiler-plugin:3.13.0:compile].executor": "Run",
+    "Maven.vidmot [org.apache.maven.plugins:maven-deploy-plugin:3.1.2:help].executor": "Run",
+    "Maven.vidmot [org.openjfx:javafx-maven-plugin:0.0.8:jlink].executor": "Run",
+    "Maven.vidmot [org.openjfx:javafx-maven-plugin:0.0.8:run].executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "main",
+    "ignore.virus.scanning.warn.message": "true",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/Notandi/OneDrive/HI/Önn 2/Viðmótsforritun/Vidmotsf-Lokav/Verkefni 3 Slonguspil",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "org.jetbrains.plugins.github.ui.GithubSettingsConfigurable",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RunManager">
     <configuration name="SnakesApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="vidmot.SnakesApplication" />
@@ -116,7 +115,7 @@
       <workItem from="1744047095473" duration="70000" />
       <workItem from="1744556326339" duration="2023000" />
       <workItem from="1744558371875" duration="250000" />
-      <workItem from="1744558636165" duration="4563000" />
+      <workItem from="1744558636165" duration="5867000" />
     </task>
     <task id="LOCAL-00001" summary="Taka við nöfnum spilara">
       <option name="closed" value="true" />

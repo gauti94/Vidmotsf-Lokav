@@ -97,12 +97,18 @@ public class Leikur {
                         getLeikmadur().faera(spurningaTala, MAXREITUR);
                     }
                     else {
-                        int currentSpilari = naesti;
                         int naestiSpilari = (naesti + 1) % leikmenn.length;
                         Leikmadur andstaedingur = leikmenn[naestiSpilari];
                         teningur.kasta();
                         int spurningaTala = teningur.getTala();
-                        andstaedingur.faera(-spurningaTala, MAXREITUR);
+                        int reitur = andstaedingur.getReitur() - spurningaTala;
+                        if(reitur < 1) {
+                            reitur = 1;
+                        }
+                        if(nyrReitur > MAXREITUR) {
+                            reitur = MAXREITUR;
+                        }
+                        andstaedingur.setReitur(reitur);
                         System.out.println("Færa andstæðing");
 
                     }
